@@ -1,0 +1,8 @@
+p-button{
+    float: left;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color:rgb(114, 154, 241);
+}

@@ -1,0 +1,100 @@
+<div class="form1">
+    <h2 align="center">Registration Form</h2>
+    
+    
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div>
+            <label>Name <span>*</span></label>
+            <input type="text" id="firstName" formControlName="firstName" placeholder="First Name">
+            <div class="error" *ngIf="registerForm.get('firstName').invalid && (registerForm.get('firstName').touched || registerForm.get('firstName').dirty)">
+                Name is required
+            </div>
+            <div class="error"
+                *ngIf="registerForm.get('firstName').value.length>15 || (registerForm.get('firstName').value.length<3 && registerForm.get('firstName').value.length>0) " >
+                    Name is invalid
+            </div>
+        </div>
+        <div>
+            <label>Mail Type <span>*</span></label>
+            <input type="radio" id='mailType1' value="Office" formControlName="mailType">Office
+            <input type="radio" id="mailType2" value="Personal" formControlName="mailType">Personal
+            <div class="error" *ngIf="registerForm.get('mailType').invalid && (registerForm.get('mailType').touched || registerForm.get('mailType').dirty)">
+                Mail type is required
+            </div>
+        </div>
+        <div>
+            <label>E-mail <span>*</span></label>
+            <input type="text" id="mail" formControlName="mail" placeholder="abc@example.com">
+            <div class="error" *ngIf="registerForm.get('mail').invalid && (registerForm.get('mail').touched || registerForm.get('mail').dirty) && registerForm.get('mail').errors?.required">
+                Mail is required
+            </div>
+            
+        </div>
+        <div>
+            <label>Phone Number <span>*</span></label>
+            <select>
+                <option>+91</option>
+                <option>+1</option>
+                <option>+61</option>
+            </select>
+            <input id="phnNo" type="tel" formControlName="phnNo" placeholder="Enter 10 digits">
+            <div class="error" *ngIf="registerForm.get('phnNo').invalid && (registerForm.get('phnNo').touched || registerForm.get('phnNo').dirty)">
+                Phone Number is required.
+            </div>
+            <div class="error"
+                *ngIf="registerForm.get('phnNo').value.length!=10  && registerForm.get('phnNo').value.length>0 " >
+                    Phone number should be 10 digits.
+            </div>
+        </div>
+        <div>
+            <label>D.O.B <span>*</span></label>
+            <input type="date" id="dob" formControlName="dob">
+            <div class="error" *ngIf="registerForm.get('dob').invalid && (registerForm.get('dob').touched || registerForm.get('dob').dirty)">
+                Date of Birth is required.
+            </div>
+        </div>
+        <div>
+            <label>Address <span>*</span></label>
+            <textarea id="addr" formControlName="addr"></textarea>
+            <div class="error" *ngIf="registerForm.get('addr').invalid && (registerForm.get('addr').touched || registerForm.get('addr').dirty)">
+                Address is required.
+            </div>
+        </div>
+        <div>
+            <label>Password <span>*</span></label>
+            <input formControlName="pwd" type="password" id="pwd">
+            <div class="error" *ngIf="registerForm.get('pwd').invalid && (registerForm.get('pwd').touched || registerForm.get('pwd').dirty) ">
+               
+                <div class="error"
+                *ngIf="registerForm.get('pwd').errors?.['required'] " >
+                    Password is required
+                </div>
+                <div class="error"
+                *ngIf="registerForm.get('pwd').value.length<6 " >
+                    Minimum length is 6 characters.
+            </div>
+            </div>
+
+           
+        </div>
+        <div>
+            <label>Confirm Password <span>*</span></label>
+            <input type="password" id="rPwd" formControlName="rPwd">
+            <div class="error" *ngIf="registerForm.get('rPwd').invalid && (registerForm.get('rPwd').touched || registerForm.get('rPwd').dirty)">
+                Confirm Password is required
+            </div>
+            <div class="error"
+                *ngIf="registerForm.errors?.['mismatch'] " >
+                    Password does not match.
+            </div>
+        </div>
+        <br>
+        <div>
+            <p-button type="submit" label="Submit" [disabled]="registerForm.invalid"></p-button>
+        </div>
+        
+
+        <div><label>Existing User? </label><a routerLink="/login">Login</a></div>
+    </form>
+</div>
+

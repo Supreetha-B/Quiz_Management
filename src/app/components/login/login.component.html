@@ -1,0 +1,31 @@
+<div class="form1">
+    <h2 align="center">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div>
+            <label>E-mail</label>
+            <input type="email" formControlName="mail" id="mail" placeholder="abc@example.com">
+            <div class="error" *ngIf="loginForm.get('mail').invalid && (loginForm.get('mail').touched || loginForm.get('mail').dirty) && loginForm.get('mail').errors?.required">
+                Mail is required
+            </div>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" formControlName="pwd" id="pwd" placeholder="Enter correct password">
+            <div class="error" *ngIf="loginForm.get('pwd').invalid && (loginForm.get('pwd').touched || loginForm.get('pwd').dirty) ">
+               
+                <div class="error"
+                *ngIf="loginForm.get('pwd').errors?.['required'] " >
+                    Password is required
+                </div>
+                <div class="error"
+                *ngIf="loginForm.get('pwd').value.length<6 " >
+                    Minimum length is 6 characters.
+            </div>
+            </div>
+        </div>
+        <button type="submit">Login</button>
+        <label><a routerLink="/register">Register</a> </label> 
+    </form>
+    
+</div>
+

@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "4ee8",
+      "firstName": "sss",
+      "mailType": "Office",
+      "mail": "sss@gmail.com",
+      "phnNo": "1234567890",
+      "dob": "2025-04-09",
+      "addr": "qwerty",
+      "pwd": "123456"
+    },
+    {
+      "id": "189a",
+      "firstName": "supree",
+      "mailType": "Office",
+      "mail": "supree@gmail.com",
+      "phnNo": "1234567890",
+      "dob": "2025-04-09",
+      "addr": "qwertyu",
+      "pwd": "123456"
+    },
+    {
+      "id": "dcd3",
+      "firstName": "sss",
+      "mailType": "Office",
+      "mail": "sss@gmail.com",
+      "phnNo": "1234567890",
+      "dob": "2025-04-09",
+      "addr": "qwerty",
+      "pwd": "123456"
+    },
+    {
+      "id": "e4c9",
+      "firstName": "sup",
+      "mailType": "Office",
+      "mail": "supb@deloitte.com",
+      "phnNo": "1234567890",
+      "dob": "2025-04-09",
+      "addr": "qwerty",
+      "pwd": "123456"
+    }
+  ],
+  "quizzes":[]
+}
