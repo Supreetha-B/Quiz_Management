@@ -1,8 +1,36 @@
-p-button{
-    float: left;
-    color: rgb(0, 0, 0);
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color:rgb(114, 154, 241);
-}
+.main-content {
+    padding: 20px;
+  }
+  
+  .topbar {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .tab-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-buttons button.active {
+    background-color: #007ad9;
+    color: white;
+  }
+  
+  .quiz-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .quiz-card {
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

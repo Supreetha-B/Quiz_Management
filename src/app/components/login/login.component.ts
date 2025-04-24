@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit{
         if(response&&response.length>0)
         {
           console.log(response)
+          localStorage.setItem('loggedInUser',JSON.stringify(response[0]))
           sessionStorage.setItem('mail',mail);
           //to check the domain for admin and student portal
           if(mail==='supb@deloitte.com')
