@@ -7,3 +7,16 @@ export interface registerPostData {
 export interface Users extends registerPostData{
     id:string
 }
+
+export interface quizData{
+    title:string;
+    startDate:string;
+    endDate:string;
+    questions:quizQuestions[];
+}
+
+export interface quizQuestions{
+    question:string;
+    options:[];
+    correctAnswer:string;
+}

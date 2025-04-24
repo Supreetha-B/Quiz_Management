@@ -1,31 +1,23 @@
-<div *ngIf="step===1">
-    <h2>Create Quiz</h2>
-    <form formGroup="quizForm">
-        <div>
-            <label>Title </label>
-            <input type="text" formControlName="title">
-            <label>Start Date </label>
-            <input type="date" formControlName="sDate">
-            <label>End Date </label>
-            <input type="date" formControlName="eDate">
-            <label>Duration </label>
-            <input type="number" formControlName="duration">
-            <label>Timer </label>
-            <input type="number" formControlName="timer">
-            <label>Number of Questions </label>
-            <input type="number" formControlName="qns_count">
-            <button (click)="nextStep()">Next Step</button>
-        </div>
-    </form>
-</div>
-<div *ngIf="step===2">
-    <form formGroup="quizForm" (ngSubmit)="submitQuiz()">
-        <div formArrayName="questions">
-            <div *ngFor="let q of questions;let i=index" formGroupName="i">
-                <input formControl="q.question" formControlName="questions">
-                <input formControl="q.answer" formControlName="ans">
-            </div>
-        </div>
-        <button type="submit">Submit Quiz</button>
-    </form>
-</div>
+<!-- <div>
+  <label>Enter number of questions:</label>
+  <input type="number" [(ngModel)]="numberOfQuestions" />
+  <button (click)="submit()">Next</button>
+</div> -->
+
+
+<h2>Quiz Details</h2>
+
+<label>Title</label>
+<input type="text" [(ngModel)]="title">
+<br>
+<label>Start Date</label>
+<input type="date" [(ngModel)]="startDate">
+<br>
+<label>End Date</label>
+<input type="date" [(ngModel)]="endDate">
+<br>
+<label>Number of Questions</label>
+<input type="text" [(ngModel)]="numberOfQuestions">
+
+<br>
+<button (click)="submit()">Next Create Questions</button>

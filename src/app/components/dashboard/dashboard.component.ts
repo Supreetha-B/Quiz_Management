@@ -7,6 +7,7 @@ import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,12 +20,14 @@ export class DashboardComponent implements OnInit {
   // constructor(private router: Router) {}
 
   private router=inject(Router)
+  private authService=inject(AuthService)
 
   userName = 'Admin'; // fetch from auth/user service
   totalQuestions = 0;
   plugins=[ChartDataLabels]; 
   pieOptions:any;
   pieChartData: any;
+  quizList:any[]=[]
 
   ngOnInit(){
     this.pieChartData={
@@ -46,6 +49,14 @@ export class DashboardComponent implements OnInit {
         }
       }
     }
+    this.loadQuiz()
+  }
+
+
+  loadQuiz(){
+    this.authService.getQuizDetails().subscribe(data=>{
+      this.quizList=data
+    })
   }
   
   stats = {

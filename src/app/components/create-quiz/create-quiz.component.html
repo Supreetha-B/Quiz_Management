@@ -1,0 +1,28 @@
+<!-- <form (ngSubmit)="submitQuiz()">
+    <div *ngFor="let q of questions; let i = index">
+      <label>Question {{ i + 1 }}</label>
+      <input [formControl]="q.question" placeholder="Enter Question">
+      <input [formControl]="q.answer" placeholder="Enter Answer">
+    </div>
+    <button type="submit">Submit Quiz</button>
+  </form> -->
+
+<h2>Add Questions</h2>
+  <div *ngFor="let q of questions; let i = index">
+    <h3>Question {{ i + 1 }}</h3>
+    <input [(ngModel)]="q.question" placeholder="Enter question" style="width: 100%;"/>
+  
+    <h3>Options</h3>
+    <div *ngFor="let opt of q.options; let j = index" style="width: 100%;">
+      <input [(ngModel)]="q.options[j]" placeholder="Option {{ j + 1 }}" name="option-{{i}}-{{j}}" />
+    </div>
+  
+    <h3>Answer</h3>
+    <select [(ngModel)]="q.correctAnswer" name="correct-{{i}}">
+      <option *ngFor="let opt of q.options" [value]="opt">{{ opt.trim()!=='' ? opt:'options '+(q.options.indexOf(opt)+1)}}</option>
+    </select>
+  
+    <hr />
+  </div>
+  
+  <button (click)="submitQuiz()">Submit Quiz</button>

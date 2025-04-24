@@ -41,5 +41,99 @@
       "pwd": "123456"
     }
   ],
-  "quizzes":[]
+  "quizzes": [
+    {
+      "id": "58e6"
+    },
+    {
+      "id": "3591",
+      "title": "angular",
+      "startDate": "2025-04-09",
+      "endDate": "13",
+      "questions": [
+        {
+          "question": " Which version of Angular marked the shift from AngularJS to Angular?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "6"
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "id": "b684",
+      "title": "angular",
+      "startDate": "2025-04-25",
+      "endDate": "1",
+      "questions": [
+        {
+          "question": " Angular is primarily maintained by which company?",
+          "options": [
+            "am",
+            "fb",
+            "g",
+            "fl"
+          ],
+          "correctAnswer": "g"
+        }
+      ]
+    },
+    {
+      "id": "9f94",
+      "title": "Node",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": "n Angular, which file is used to define the set of modules, components, and services?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "id": "513e",
+      "title": "ang",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": " Which file extension is used for Angular component templates?",
+          "options": [
+            "html",
+            "ts",
+            "js",
+            "css"
+          ],
+          "correctAnswer": "js"
+        }
+      ]
+    },
+    {
+      "id": "9d46",
+      "title": "ang",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": " In Angular, how do you bind a component's class property to an element in its template?",
+          "options": [
+            "html",
+            "css",
+            "js",
+            "ts"
+          ],
+          "correctAnswer": "ts"
+        }
+      ]
+    }
+  ]
 }
