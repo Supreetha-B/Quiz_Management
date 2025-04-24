@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { AuthService } from '../../services/auth.service';
+import { endWith } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -55,7 +56,12 @@ export class DashboardComponent implements OnInit {
 
   loadQuiz(){
     this.authService.getQuizDetails().subscribe(data=>{
-      this.quizList=data
+      this.quizList=data.map((quiz:any)=>({
+        title:quiz.title,
+        startDate:quiz.startDate,
+        endDate:quiz.endDate,
+
+      }))
     })
   }
   
@@ -66,10 +72,10 @@ export class DashboardComponent implements OnInit {
     completionRate: 70
   };
 
-  exams = [
-    { title: 'Angular Basics', startDate: '2024-04-10', endDate: '2024-04-12', duration: '60 mins' },
-    { title: 'Node.js Intro', startDate: '2024-05-01', endDate: '2024-05-02', duration: '45 mins' }
-  ];
+  // exams = [
+  //   { title: 'Angular Basics', startDate: '2024-04-10', endDate: '2024-04-12', duration: '60 mins' },
+  //   { title: 'Node.js Intro', startDate: '2024-05-01', endDate: '2024-05-02', duration: '45 mins' }
+  // ];
 
   
   createQuiz() {
@@ -77,8 +83,8 @@ export class DashboardComponent implements OnInit {
   }
   
 
-  viewResults(exam: any) {
-    this.router.navigate(['/results', exam.title]);
+  viewResults(quizList: any) {
+    this.router.navigate(['/results', quizList.title]);
   }
 
   goHome() {

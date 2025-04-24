@@ -26,11 +26,11 @@ export class AuthService {
   }
 
   createQuizMeta(meta:any ):Observable<any> {
-    return this.http.post(`${this.baseUrl}/quizMeta`,meta)
+    return this.http.post(`${this.baseUrl}/quizzes`,meta)
   }
 
   getQuizDetails():Observable<any[]>{
-    return this.http.get<any[]>(`${this.baseUrl}/quizMeta`)
+    return this.http.get<any[]>(`${this.baseUrl}/quizzes`)
   }
 
   

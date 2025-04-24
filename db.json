@@ -134,6 +134,60 @@
           "correctAnswer": "ts"
         }
       ]
+    },
+    {
+      "id": "d06f",
+      "title": "an",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-25",
+      "questions": [
+        {
+          "question": "",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "id": "4a8b",
+      "title": "ang",
+      "startDate": "2025-04-26",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": " Which Angular feature is used to display data in a component template dynamically?",
+          "options": [
+            "service",
+            "pipe",
+            "module",
+            "direct"
+          ],
+          "correctAnswer": "direct"
+        }
+      ]
+    },
+    {
+      "id": "2740",
+      "title": "Node",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-25",
+      "questions": [
+        {
+          "question": " Which Angular feature is used to display data in a component template dynamically?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": ""
+        }
+      ]
     }
   ]
 }
