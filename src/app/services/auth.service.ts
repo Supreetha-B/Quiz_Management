@@ -25,16 +25,16 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/quizzes`,quizData)
   }
 
-  // createQuizMeta(meta:any ):Observable<any> {
-  //   return this.http.post(`${this.baseUrl}/quizzes`,meta)
-  // }
-
-  getQuizDetails():Observable<any[]>{
-    return this.http.get<any[]>(`${this.baseUrl}/quizzes`)
+  getQuizDetails():Observable<quizData[]>{
+    return this.http.get<quizData[]>(`${this.baseUrl}/quizzes`)
   }
 
-  getQuizById(id:string){
-    return this.http.get<any>(`${this.baseUrl}/quizzes`)
+  getQuizById(id:string):Observable<quizData>{
+    return this.http.get<quizData>(`${this.baseUrl}/quizzes/${id}`)
+  }
+  updateQuiz(data:quizData):Observable<quizData>{
+    return this.http.put<quizData>(`${this.baseUrl}/quizzes/${data.id}`,data)
+
   }
 
   

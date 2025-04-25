@@ -9,14 +9,19 @@ export interface Users extends registerPostData{
 }
 
 export interface quizData{
+    id?:string;
     title:string;
     startDate:string;
     endDate:string;
     questions:quizQuestions[];
+    answers?:string[];
+    attendedTime?:string;
+    submitted?:boolean
 }
 
 export interface quizQuestions{
     question:string;
-    options:[];
+    options:string[];
     correctAnswer:string;
 }
+

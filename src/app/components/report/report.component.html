@@ -1,0 +1,21 @@
+<!-- <h3>Report for {{quiz.title}}</h3> -->
+<!-- <p>Correct Answers : {{correctCount}}/{{quiz.questions.length}}</p>
+<div *ngFor="let q of quiz.questions;let i=index">
+    <p>{{i+1}}.{{q.question}}</p>
+    <p>Your Answer: {{quiz.answers[i]}}</p>
+    <p>Corect Answer: {{quiz.correctAnswers[i]}}</p>
+</div> -->
+
+<div *ngIf="quiz">
+    <h3>Report : {{quiz.title}} </h3>
+    <p>Start Date: {{quiz.startDate}}</p>
+    <p>Submitted: {{quiz.submitted?'Yes':'No'}}</p>
+    <p>Time Taken: {{quiz.attendedTime}}</p>
+
+    <h4>Questions:</h4>
+    <ul>
+        <li *ngFor="let q of quiz.questions">
+            {{q.question}} - {{q.correctAnswer}}
+        </li>
+    </ul>
+</div>

@@ -1,5 +1,10 @@
 <div class="dashboard-container">
-    
+    <div class="sidebar">
+        <button style="width: 70px;" type="button" (click)="goHome()">Home</button>
+        <button style="width: 70px;" type="button" (click)="viewUsers()">User</button>
+        <button style="width: 70px;" type="button" (click)="signOut()">SignOut</button>
+    </div>
+
     <div class="main-content">
         <div class="topbar">
           <span class="welcome-msg">Welcome, {{ firstName }}</span>
@@ -16,11 +21,18 @@
         </div>
       
         <div class="quiz-cards">
-          <div *ngFor="let quiz of (currentTab === 'active' ? activeQuizzes : completedQuizzes)" class="quiz-card">
+
+            <app-quiz-card class="quiz-card" *ngFor="let quiz of (currentTab==='active'?activeQuizzes:completedQuizzes)activeQuizzes" [quiz]="quiz" [isCompleted]="currentTab==='completed'"></app-quiz-card>
+          <!-- <div *ngFor="let quiz of (currentTab === 'active' ? activeQuizzes : completedQuizzes)" class="quiz-card">
             <h3>{{ quiz.title }}</h3>
             <p><strong>Start:</strong> {{ quiz.startDate }}</p>
-            <button pButton label="Start" class="p-button-success" (click)="openQuiz(quiz)"></button>
-          </div>
-        </div>
+            <ng-container  *ngIf="currentTab==='active'"><button quiz='quiz' (click)="startQuiz()">Start</button></ng-container>
+            <ng-container *ngIf="currentTab==='completed'">
+                <p>Time Taken: {{quiz.attendedTime}}</p>
+                <button quiz='quiz'  (click)="viewReport()">View Report</button>
+            </ng-container>
+             <button pButton label="Start" class="p-button-success" (click)="openQuiz(quiz)"></button> -->
+          <!-- </div>
+        </div> -->
       </div>
 </div>

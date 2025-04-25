@@ -1,0 +1,13 @@
+<div *ngIf="quiz">
+    <h3>{{quiz.title}}</h3>
+    <div *ngFor="let q of quiz.questions;let i =index">
+        <p>{{i+1}}.{{q.question}}</p>
+        <div *ngFor="let opt of q.options">
+            <input type="radio" name="q{{i}}" [value]="opt" [(ngModel)]="answers[i]"/>{{opt}}
+        </div>
+
+    </div>
+
+    <button (click)="submitQuiz()">Submit</button>
+
+</div>

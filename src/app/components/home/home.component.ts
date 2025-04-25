@@ -4,10 +4,11 @@ import { ButtonModule } from 'primeng/button';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { QuizCardComponent } from "../quiz-card/quiz-card.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonModule,FormsModule,ReactiveFormsModule,CommonModule],
+  imports: [ButtonModule, FormsModule, ReactiveFormsModule, CommonModule, QuizCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
     this.authService.getQuizDetails().subscribe((quizzes)=>{
       this.activeQuizzes=quizzes.filter((q:any)=>!q.submitted);
       this.completedQuizzes=quizzes.filter((q:any)=>q.submitted)
+      console.log("activ quiz", this.activeQuizzes)
     })
   }
 
@@ -48,11 +50,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  openQuiz(quiz:any)
+  // openQuiz(quiz:any)
+  // {
+  //   this.router.navigate(['/quiz-card'],quiz.id)
+  // }
+  startQuiz()
   {
-    this.router.navigate(['/quiz-card'],quiz.id)
+    this.router.navigate(['/quiz-card']);
   }
-  
+  viewReport(){
+    this.router.navigate(['/report'])
+  }
   goHome() {
     this.router.navigate(['/home']);
   }

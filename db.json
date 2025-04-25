@@ -79,7 +79,12 @@
           ],
           "correctAnswer": "g"
         }
-      ]
+      ],
+      "answers": [
+        "g"
+      ],
+      "attendedTime": "25/4/2025, 10:27:18 am",
+      "submitted": true
     },
     {
       "id": "9f94",
@@ -115,7 +120,12 @@
           ],
           "correctAnswer": "js"
         }
-      ]
+      ],
+      "answers": [
+        "ts"
+      ],
+      "attendedTime": "25/4/2025, 10:17:20 am",
+      "submitted": true
     },
     {
       "id": "9d46",
@@ -169,7 +179,12 @@
           ],
           "correctAnswer": "direct"
         }
-      ]
+      ],
+      "answers": [
+        "module"
+      ],
+      "attendedTime": "25/4/2025, 9:59:51 am",
+      "submitted": true
     },
     {
       "id": "2740",
@@ -187,7 +202,69 @@
           ],
           "correctAnswer": ""
         }
-      ]
+      ],
+      "answers": [
+        "2"
+      ],
+      "attendedTime": "25/4/2025, 10:27:09 am",
+      "submitted": true
+    },
+    {
+      "id": "c749",
+      "title": "Angular_Exam",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-25",
+      "questions": [
+        {
+          "question": "Which version of Angular marked the shift from AngularJS to Angular?",
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ],
+          "correctAnswer": "2"
+        }
+      ],
+      "answers": [
+        "2"
+      ],
+      "attendedTime": "25/4/2025, 9:55:30 am",
+      "submitted": true
+    },
+    {
+      "id": "52fd",
+      "title": "Final_Exam",
+      "startDate": "2025-04-26",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": "Which version of Angular marked the shift from AngularJS to Angular?",
+          "options": [
+            "v2",
+            "v3",
+            "v5",
+            "v4"
+          ],
+          "correctAnswer": "v2"
+        },
+        {
+          "question": "Angular is primarily maintained by which company?",
+          "options": [
+            "flipkart",
+            "microsoft",
+            "Amazon",
+            "Google"
+          ],
+          "correctAnswer": "Google"
+        }
+      ],
+      "answers": [
+        "v2",
+        "Google"
+      ],
+      "attendedTime": "25/4/2025, 10:44:06 am",
+      "submitted": true
     }
   ]
 }

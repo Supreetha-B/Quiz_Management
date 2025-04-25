@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { QuizFormComponent } from './components/quiz-form/quiz-form.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
+import { QuizAttemptComponent } from './components/quiz-attempt/quiz-attempt.component';
+import { ReportComponent } from './components/report/report.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'login',pathMatch:'full'},
@@ -17,6 +19,8 @@ export const routes: Routes = [
     {path:'dashboard',component:DashboardComponent,canActivate:[authGuard]},
     {path:'quiz',component:QuizFormComponent},
     {path:'create-quiz',component:CreateQuizComponent},
-    {path:'quiz-card',component:QuizCardComponent}
+    {path:'quiz-card',component:QuizCardComponent},
+    {path:'quiz-attempt/:id',component:QuizAttemptComponent},
+    {path:'report/:id',component:ReportComponent}
     // {path:'**',component:ErrorPageComponent}
 ];

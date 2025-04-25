@@ -1,1 +1,11 @@
-<p>quiz-card works!</p>
+<div class="quiz-card">
+    <h3>{{quiz?.title}}</h3>
+    <p>Start Date:{{quiz?.startDate}}</p>
+    <ng-container *ngIf="!isCompleted">
+        <button (click)="startQuiz()">Start</button>
+    </ng-container>
+    <ng-container *ngIf="isCompleted">
+        <p>Time Taken: {{quiz.attendedTime}}</p>
+        <button (click)="viewReport()">Report</button>
+    </ng-container>
+</div>
