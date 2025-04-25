@@ -9,10 +9,12 @@ import { TableModule } from 'primeng/table';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { AuthService } from '../../services/auth.service';
 import { endWith } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { userQuizResults } from '../../interfaces/auth';
 
 @Component({
   selector: 'app-dashboard',
-  imports:[CardModule,ButtonModule,InputTextModule,TableModule,ChartModule,FormsModule],
+  imports:[CardModule,ButtonModule,InputTextModule,TableModule,CommonModule,ChartModule,FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -29,6 +31,7 @@ export class DashboardComponent implements OnInit {
   pieOptions:any;
   pieChartData: any;
   quizList:any[]=[]
+  quizzes:any[]=[];
 
   ngOnInit(){
     this.pieChartData={
@@ -55,13 +58,17 @@ export class DashboardComponent implements OnInit {
 
 
   loadQuiz(){
-    this.authService.getQuizDetails().subscribe(data=>{
-      this.quizList=data.map((quiz:any)=>({
-        title:quiz.title,
-        startDate:quiz.startDate,
-        endDate:quiz.endDate,
+    this.authService.getQuizDetails().subscribe({
+      // this.quizList=data.map((quiz:any)=>({
+      //   title:quiz.title,
+      //   startDate:quiz.startDate,
+      //   endDate:quiz.endDate,
 
-      }))
+      // }))
+      next:(data)=>{
+        console.log("Load quiz",data)
+        this.quizzes=data;
+      }
     })
   }
   
@@ -83,9 +90,24 @@ export class DashboardComponent implements OnInit {
   }
   
 
-  viewResults(quizList: any) {
-    this.router.navigate(['/results', quizList.title]);
+  viewResults(quizId: number): void {
+    this.authService.getUserQuizResultsByQuiz(quizId).subscribe((results) => {
+      if (!results || !Array.isArray(results)) {
+        alert('No results found.');
+        return;
+      }
+
+      const formattedResults = results.map(r =>
+        `User ${r.userId}: ${r.correctAnswers}/${r.totalQuestions}`
+      ).join('\n');
+
+      alert(`Results for Quiz ID ${quizId}:\n\n${formattedResults}`);
+      console.log(results);
+    });
+    
   }
+
+  
 
   goHome() {
     this.router.navigate(['/dashboard']);

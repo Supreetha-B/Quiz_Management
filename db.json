@@ -216,6 +216,148 @@
       ],
       "attendedTime": "25/4/2025, 10:44:06 am",
       "submitted": true
+    },
+    {
+      "id": "4518",
+      "title": "Quiz_Angular",
+      "startDate": "2025-04-25",
+      "endDate": "2025-04-25",
+      "questions": [
+        {
+          "question": " Which command is used to serve an Angular application locally for development?",
+          "options": [
+            "serve",
+            "start",
+            "run",
+            "init"
+          ],
+          "correctAnswer": "serve"
+        }
+      ]
+    },
+    {
+      "id": "38ed",
+      "userId": "e4c9",
+      "title": "Java",
+      "startDate": "2025-04-26",
+      "endDate": "2025-04-26",
+      "questions": [
+        {
+          "question": "what is java extension",
+          "options": [
+            "html",
+            "ts",
+            "js",
+            "java"
+          ],
+          "correctAnswer": "java"
+        }
+      ],
+      "submitted": false
+    },
+    {
+      "id": "ba75",
+      "userId": "e4c9",
+      "title": "example",
+      "startDate": "2025-04-24",
+      "endDate": "2025-04-25",
+      "questions": [
+        {
+          "question": "what is js",
+          "options": [
+            "java",
+            "javascript",
+            "ruby",
+            "ang"
+          ],
+          "correctAnswer": "javascript"
+        }
+      ],
+      "submitted": false
     }
-  ]
+  ],
+  "userQuizStatus": [
+    {
+      "id": "0e20",
+      "userId": "4ee8",
+      "quizId": "c749",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "2"
+      },
+      "attendedTime": "25/4/2025, 2:04:36 pm"
+    },
+    {
+      "id": "6836",
+      "userId": "189a",
+      "quizId": "c749",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "2"
+      },
+      "attendedTime": "25/4/2025, 2:05:02 pm"
+    },
+    {
+      "id": "ec2b",
+      "userId": "189a",
+      "quizId": "52fd",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "v2",
+        "1": "Google"
+      },
+      "attendedTime": "25/4/2025, 2:14:18 pm"
+    },
+    {
+      "id": "8e4a",
+      "userId": "4ee8",
+      "quizId": "38ed",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "java"
+      },
+      "attendedTime": "25/4/2025, 3:09:03 pm"
+    },
+    {
+      "id": "3deb",
+      "userId": "4ee8",
+      "quizId": "4a8b",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "directive"
+      },
+      "attendedTime": "25/4/2025, 3:11:47 pm"
+    },
+    {
+      "id": "391f",
+      "userId": "4ee8",
+      "quizId": "3591",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "2"
+      },
+      "attendedTime": "25/4/2025, 3:18:11 pm"
+    },
+    {
+      "id": "068d",
+      "userId": "4ee8",
+      "quizId": "2740",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "2"
+      },
+      "attendedTime": "25/4/2025, 3:18:31 pm"
+    },
+    {
+      "id": "ee0c",
+      "userId": "189a",
+      "quizId": "ba75",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "javascript"
+      },
+      "attendedTime": "25/4/2025, 3:26:06 pm"
+    }
+  ],
+  "userQuizResults": []
 }

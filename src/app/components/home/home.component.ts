@@ -25,35 +25,33 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     const user=JSON.parse(localStorage.getItem('loggedInUser') || '{}')
+    if(!user || !user.id)
+    {
+      this.router.navigate(['/login']);
+    }
     this.firstName=user.firstName;
     this.fetchQuizzes();
   }
-
-  fetchQuizzes(){
-    this.authService.getQuizDetails().subscribe((quizzes)=>{
-      this.activeQuizzes=quizzes.filter((q:any)=>!q.submitted);
-      this.completedQuizzes=quizzes.filter((q:any)=>q.submitted)
-      console.log("activ quiz", this.activeQuizzes)
-    })
+  fetchQuizzes() {
+    const user = this.authService.getCurrentUser();
+    if (!user) return;
+  
+    this.authService.getQuizDetails().subscribe((quizzes) => {
+      this.authService.getUserQuizStatus().subscribe((statuses) => {
+        const userStatuses = statuses.filter(status => status.userId === user.id);
+  
+        this.activeQuizzes = quizzes.filter(quiz => {
+          return !userStatuses.find(status => status.quizId === quiz.id && status.submitted);
+        });
+  
+        this.completedQuizzes = quizzes.filter(quiz => {
+          return userStatuses.find(status => status.quizId === quiz.id && status.submitted);
+        });
+      });
+    });
   }
+  
 
-  sortQuizzes(order:'asc' | 'desc')
-  {
-    this.sortOrder=order;
-    const sortFn=(a:any,b:any)=>a.title.localeCompare(b.title);
-    this.activeQuizzes.sort(sortFn);
-    this.completedQuizzes.sort(sortFn);
-    if(order==='desc')
-    {
-      this.activeQuizzes.reverse();
-      this.completedQuizzes.reverse();
-    }
-  }
-
-  // openQuiz(quiz:any)
-  // {
-  //   this.router.navigate(['/quiz-card'],quiz.id)
-  // }
   startQuiz()
   {
     this.router.navigate(['/quiz-card']);

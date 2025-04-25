@@ -13,39 +13,60 @@ import { AuthService } from '../../services/auth.service';
 export class QuizAttemptComponent implements OnInit {
   quiz: any;
   answers: string[] = [];
-  submitted = false;
-  selectedAnswers:{[questionIndex:number]:string}={}
-  constructor(private route: ActivatedRoute) { }
-  private router = inject(Router)
-  private authService = inject(AuthService)
-  ngOnInit() {
+  selectedAnswers: { [questionIndex: number]: string } = {};
+  currentUser: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.authService.getQuizById(id!).subscribe((quiz) => {
-      this.quiz = quiz;
-      this.answers = new Array(quiz.questions.length).fill('');
-    })
+    this.currentUser = this.authService.getCurrentUser();
+
+    if (id) {
+      this.authService.getQuizById(id).subscribe((quiz) => {
+        this.quiz = quiz;
+        this.answers = new Array(quiz.questions.length).fill('');
+      });
+    }
   }
 
-  selectAnswer(questionIndex:number,options:string):void{
-    this.selectedAnswers[questionIndex]=options
+  selectAnswer(questionIndex: number, option: string): void {
+    this.selectedAnswers[questionIndex] = option;
+    this.answers[questionIndex] = option;
   }
-  submitQuiz() {
-    if (this.answers.includes('')) {
+
+  submitQuiz(): void {
+    if (this.answers.includes("")) {
       alert('Please answer all questions');
       return;
     }
 
-    this.quiz.answers = this.answers;
-    this.quiz.attendedTime = new Date().toLocaleString();
-    this.quiz.submitted = true;
-    this.quiz.selectedAnswers=this.selectedAnswers;
+    this.authService.getUserQuizStatus().subscribe((statuses: any[]) => {
+      const existingStatus = statuses.find(
+        s => s.userId === this.currentUser.id && s.quizId === this.quiz.id
+      );
 
-    this.authService.updateQuiz(this.quiz).subscribe(() => {
-      alert('Quiz Submitted Successfully');
-      this.router.navigate(['/home'])
-      // window.close();
-    })
+      const statusData = {
+        id: existingStatus?.id,
+        userId: this.currentUser.id,
+        quizId: this.quiz.id,
+        submitted: true,
+        selectedAnswers: this.selectedAnswers,
+        attendedTime: new Date().toLocaleString()
+      };
+
+      const request$ = existingStatus
+        ? this.authService.updateUserQuizStatus(statusData)
+        : this.authService.createUserQuizStatus(statusData);
+
+      request$.subscribe(() => {
+        alert('Quiz Submitted Successfully');
+        this.router.navigate(['/home']);
+      });
+    });
   }
-
-
 }

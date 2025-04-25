@@ -23,10 +23,14 @@ export class ReportComponent implements OnInit{
     const id=this.route.snapshot.paramMap.get('id');
     this.authService.getQuizById(id!).subscribe((quiz)=>{
       this.quiz=quiz;
-    //   if(quiz.answers && quiz.questions){
-    //   this.correctCount=quiz.questions.filter((q:any,i:number)=>
-    //     q.correctAnswer===q.answers[i]).length;
-    // }
+      if(quiz.answers && quiz.questions && quiz.answers.length===quiz.questions.length){
+      this.correctCount=quiz.questions.filter((q:any,i:number)=>
+        q.correctAnswer===q.answers[i]
+    ).length;
+    }
+    else{
+      this.correctCount=0;
+    }
     })
   }
 

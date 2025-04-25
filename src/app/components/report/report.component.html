@@ -16,7 +16,7 @@
     <ul>
         <li *ngFor="let q of quiz.questions;let i =index">
             <p>Q{{i+1}}. {{q.question}} </p>
-            <p>Ans{{i+1}}. {{quiz.selectedAnswers?.[i] || 'Not Answered'}} </p>
+            <p>Ans{{i+1}}. {{quiz.selectedAnswers&& quiz.selectedAnswers[i] ? quiz.selectedAnswers[i] : 'Not Answered'}} </p>
         </li>
     </ul>
 </div>

@@ -47,11 +47,15 @@ generateQuestions() {
 }
 
 submitQuiz() {
+  const user=this.authService.getCurrentUser();
   const postData={
+    userId:user.id,
     title:this.title,
     startDate:this.startDate,
     endDate:this.endDate,
     questions:this.questions,
+    submitted:false
+
   }
       this.authService.createQuiz(postData).subscribe(
         {
@@ -79,4 +83,3 @@ submitQuiz() {
   // Here you can send `this.questions` to your backend or JSON server
 }
 }
-

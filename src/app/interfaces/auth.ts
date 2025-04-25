@@ -26,3 +26,22 @@ export interface quizQuestions{
     correctAnswer:string;
 }
 
+export interface userQuizStatus{
+    id?:string;
+    quizId:string;
+    userId:string;
+    submitted:boolean;
+    selectedAnswers?:{[questionIndex:number]:string};
+    attendedTime?:string;
+}
+
+export interface userQuizResults{
+    id?:string;
+    quizId:string;
+    userId:string;
+    correctAnswers:string;
+    totalQuestions:string;
+
+
+}
+
