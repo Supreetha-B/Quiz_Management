@@ -3,7 +3,9 @@
     <div *ngFor="let q of quiz.questions;let i =index">
         <p>{{i+1}}.{{q.question}}</p>
         <div *ngFor="let opt of q.options">
-            <input type="radio" name="q{{i}}" [value]="opt" [(ngModel)]="answers[i]"/>{{opt}}
+            <label>
+            <input type="radio" name="q{{i}}" [value]="opt" (change)="selectAnswer(i,opt)" [checked]="selectedAnswers[i]===opt" [(ngModel)]="answers[i]"/>{{opt}}
+        </label>
         </div>
 
     </div>

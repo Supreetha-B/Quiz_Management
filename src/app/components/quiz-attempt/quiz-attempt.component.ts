@@ -14,6 +14,7 @@ export class QuizAttemptComponent implements OnInit {
   quiz: any;
   answers: string[] = [];
   submitted = false;
+  selectedAnswers:{[questionIndex:number]:string}={}
   constructor(private route: ActivatedRoute) { }
   private router = inject(Router)
   private authService = inject(AuthService)
@@ -24,6 +25,10 @@ export class QuizAttemptComponent implements OnInit {
       this.answers = new Array(quiz.questions.length).fill('');
     })
   }
+
+  selectAnswer(questionIndex:number,options:string):void{
+    this.selectedAnswers[questionIndex]=options
+  }
   submitQuiz() {
     if (this.answers.includes('')) {
       alert('Please answer all questions');
@@ -33,6 +38,7 @@ export class QuizAttemptComponent implements OnInit {
     this.quiz.answers = this.answers;
     this.quiz.attendedTime = new Date().toLocaleString();
     this.quiz.submitted = true;
+    this.quiz.selectedAnswers=this.selectedAnswers;
 
     this.authService.updateQuiz(this.quiz).subscribe(() => {
       alert('Quiz Submitted Successfully');

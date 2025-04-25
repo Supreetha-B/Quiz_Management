@@ -21,16 +21,6 @@
       "pwd": "123456"
     },
     {
-      "id": "dcd3",
-      "firstName": "sss",
-      "mailType": "Office",
-      "mail": "sss@gmail.com",
-      "phnNo": "1234567890",
-      "dob": "2025-04-09",
-      "addr": "qwerty",
-      "pwd": "123456"
-    },
-    {
       "id": "e4c9",
       "firstName": "sup",
       "mailType": "Office",
@@ -39,12 +29,19 @@
       "dob": "2025-04-09",
       "addr": "qwerty",
       "pwd": "123456"
+    },
+    {
+      "id": "9e2d",
+      "firstName": "supreetha",
+      "mailType": "Office",
+      "mail": "supreetha@gmail.com",
+      "phnNo": "1234567890",
+      "dob": "2005-10-25",
+      "addr": "qwert",
+      "pwd": "123456"
     }
   ],
   "quizzes": [
-    {
-      "id": "58e6"
-    },
     {
       "id": "3591",
       "title": "angular",
@@ -59,9 +56,17 @@
             "4",
             "6"
           ],
-          "correctAnswer": ""
+          "correctAnswer": "2"
         }
-      ]
+      ],
+      "answers": [
+        "2"
+      ],
+      "attendedTime": "25/4/2025, 11:16:19 am",
+      "submitted": true,
+      "selectedAnswers": {
+        "0": "2"
+      }
     },
     {
       "id": "b684",
@@ -87,24 +92,6 @@
       "submitted": true
     },
     {
-      "id": "9f94",
-      "title": "Node",
-      "startDate": "2025-04-25",
-      "endDate": "2025-04-26",
-      "questions": [
-        {
-          "question": "n Angular, which file is used to define the set of modules, components, and services?",
-          "options": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "correctAnswer": ""
-        }
-      ]
-    },
-    {
       "id": "513e",
       "title": "ang",
       "startDate": "2025-04-25",
@@ -128,42 +115,6 @@
       "submitted": true
     },
     {
-      "id": "9d46",
-      "title": "ang",
-      "startDate": "2025-04-25",
-      "endDate": "2025-04-26",
-      "questions": [
-        {
-          "question": " In Angular, how do you bind a component's class property to an element in its template?",
-          "options": [
-            "html",
-            "css",
-            "js",
-            "ts"
-          ],
-          "correctAnswer": "ts"
-        }
-      ]
-    },
-    {
-      "id": "d06f",
-      "title": "an",
-      "startDate": "2025-04-25",
-      "endDate": "2025-04-25",
-      "questions": [
-        {
-          "question": "",
-          "options": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "correctAnswer": ""
-        }
-      ]
-    },
-    {
       "id": "4a8b",
       "title": "ang",
       "startDate": "2025-04-26",
@@ -175,9 +126,9 @@
             "service",
             "pipe",
             "module",
-            "direct"
+            "directive"
           ],
-          "correctAnswer": "direct"
+          "correctAnswer": "directive"
         }
       ],
       "answers": [

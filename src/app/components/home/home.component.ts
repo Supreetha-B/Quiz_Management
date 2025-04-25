@@ -62,11 +62,12 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/report'])
   }
   goHome() {
+    this.currentTab='active'
     this.router.navigate(['/home']);
   }
 
   viewUsers() {
-    this.router.navigate(['/users']);
+    this.currentTab='completed'
   }
 
   signOut() {

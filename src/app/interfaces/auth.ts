@@ -16,7 +16,8 @@ export interface quizData{
     questions:quizQuestions[];
     answers?:string[];
     attendedTime?:string;
-    submitted?:boolean
+    submitted?:boolean;
+    selectedAnswers?:{[questionIndex:number]:string}
 }
 
 export interface quizQuestions{
